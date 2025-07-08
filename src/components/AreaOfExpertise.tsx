@@ -7,7 +7,7 @@ import svg from '../../public/array-upward.svg'
 gsap.registerPlugin(ScrollTrigger)
 export default function AOE({ setSelectedIndex }: { setSelectedIndex: (idx: number) => void }) {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-  const aoeRef = useRef<HTMLDivElement>(null)
+
 
   const workRef = useRef(null)
   const projectItemsRef = useRef<(HTMLDivElement|null)[]>([])
@@ -26,7 +26,7 @@ export default function AOE({ setSelectedIndex }: { setSelectedIndex: (idx: numb
         scrollTrigger:{
           trigger:seeProjectRef.current,
           start:"top 70%", 
-          markers:true
+
        
         }
       }

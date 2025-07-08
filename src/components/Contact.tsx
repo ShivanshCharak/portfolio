@@ -1,5 +1,4 @@
 "use client"
-import gsap from "gsap"
 import Image from "next/image"
 import call from '../../public/call.svg'
 import github from '../../public/github.svg'

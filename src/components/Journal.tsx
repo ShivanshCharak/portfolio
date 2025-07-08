@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import svg from '../../public/array-upward.svg'
 gsap.registerPlugin(ScrollTrigger)
-export default function Journal({ setSelectedIndex }: { setSelectedIndex: (idx:number) => void }) {
+export default function Journal({ setSelectedIndex }: { setSelectedIndex: number}) {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   const workRef = useRef(null)
@@ -36,7 +36,6 @@ export default function Journal({ setSelectedIndex }: { setSelectedIndex: (idx:n
           trigger: workRef.current,
           start: "top 80%",
           end: "bottom top",
-          markers: true,
           onEnter: () => {
             requestAnimationFrame(() => ScrollTrigger.refresh())
           }
@@ -92,7 +91,7 @@ export default function Journal({ setSelectedIndex }: { setSelectedIndex: (idx:n
               key={idx}
               onMouseEnter={() => setHoverIndex(idx)}
               onMouseLeave={() => setHoverIndex(null)}
-              onClick={()=>setSelectedIndex(idx)}
+              // onClick={()=>setSelectedIndex(idx)}
               className={`fade flex items-center gap-7  cursor-pointer transition-opacity duration-700 ${isHovered && !isActive ? "opacity-40" : "opacity-100"
                 }`}
             >

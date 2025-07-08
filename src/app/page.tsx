@@ -11,7 +11,6 @@ import { useState } from "react";
 import Journal from "@/components/Journal";
 export default function Home() {
 const [selectedIndex, setSelectedIndex] = useState(0)
-const [selectedServices, setSelectedServices] = useState(-1)
 
 
   return (
@@ -44,7 +43,7 @@ const [selectedServices, setSelectedServices] = useState(-1)
     
     
       <ProjectsViewer index={selectedIndex}  onClose={() => setSelectedIndex(-1)} />
-        <Journal/>
+        <Journal setSelectedIndex={0}/>
 
     </main>
   );

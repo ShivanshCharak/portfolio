@@ -2,7 +2,7 @@
 import {
   EcommTheme,
   InteractiveMotion,
-  CodeReview,
+
   ResponsiveDesign,
   WebVitals,
 } from "../../public/SvgPool";
@@ -41,7 +41,7 @@ export default function ServicesSection() {
   ];
 
   useEffect(() => {
-    serviceRefs.current.forEach((ref, index) => {
+    serviceRefs.current.forEach((ref) => {
       if (!ref) return;
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -75,7 +75,10 @@ export default function ServicesSection() {
         {services.map((service, index) => (
           <span
             key={index}
-            ref={(el) => (serviceRefs.current[index] = el!)}
+            ref={(el) => {
+              if (el) serviceRefs.current[index] = el;
+            }}
+            
             className="service flex w-[650px] h-[140px] opacity-0 translate-y-10 transition-all p-20"
           >
             {service.icon}

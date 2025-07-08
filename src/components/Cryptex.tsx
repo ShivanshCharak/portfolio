@@ -1,13 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Inter } from "next/font/google";
 import HoverCursor from "./utils/HoverCursor";
 import { Projects, projectsData } from "./utils/projectdata";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 export default function ProjectsViewer({
   index,
@@ -149,7 +144,7 @@ export default function ProjectsViewer({
                   <div className="mb-6">
                     <h2 className="font-bold Inter">Github</h2>
                     <a
-                      href={currentProject.githubLink}
+                      href={currentProject?.githubLink}
                       className="Inter text-[14px] underline"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -184,7 +179,7 @@ export default function ProjectsViewer({
               </div>
             </div>
 
-            <HoverCursor />
+            <HoverCursor images={currentProject.images} />
           </div>
 
           <div className="w-full flex justify-center py-20 px-20">

@@ -40,6 +40,8 @@ interface Project {
   role: Role[];
   challenges: string[];
   solutions: string[];
+  githubLink:string
+  images:string[]
 }
 
 export interface Projects {
@@ -66,6 +68,11 @@ export const projectsData:Projects = {
         "Used WebSockets for live market feed",
         "Implemented a Redis-backed matching engine",
         "Integrated wallet encryption and JWT-based auth"
+      ],
+      githubLink:"https://github.com/ShivanshCharak/Cryptex",
+      images:[
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-07-43_fxfqwy.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-07-31_rea6br.png"
       ]
     },
     techUnplugged: {
@@ -81,7 +88,12 @@ export const projectsData:Projects = {
       solutions: [
         "Used SSG in Next.js for fast loads",
         "Deployed on Vercel with GitHub CI/CD"
-      ]
+      ],
+      githubLink:"https://github.com/ShivanshCharak/Tech-Unplugged",
+      images:[
+      "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
+      "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
+    ]
     },
     digitalWallet: {
       heading: "Digital Wallet",
@@ -93,6 +105,11 @@ export const projectsData:Projects = {
         "Secure money transfer",
         "User authentication and authorization"
       ],
+      images:[
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
+      ],
+      githubLink:"",
       solutions: [
         "Implemented OTP and 2FA",
         "Used JWT and hashed PIN for auth"
@@ -108,6 +125,11 @@ export const projectsData:Projects = {
         "Scraping contest data from multiple sources",
         "Plagiarism detection in solutions"
       ],
+      images:[
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
+      ],
+      githubLink:"https://github.com/ShivanshCharak/tle-eleiminators",
       solutions: [
         "Used Puppeteer + Cron jobs",
         "Implemented solution hashing + diff checker"
@@ -123,6 +145,11 @@ export const projectsData:Projects = {
         "Integrating payment gateway",
         "Creating dynamic product filters"
       ],
+      githubLink:"https://github.com/ShivanshCharak/manara-al-aman",
+      images:[
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
+      ],
       solutions: [
         "Used Razorpay for checkout",
         "Implemented filter-based search and sort logic"
@@ -137,6 +164,11 @@ export const projectsData:Projects = {
       challenges: [
         "Real-time comment system",
         "Image uploads and CDN integration"
+      ],
+      githubLink:"https://github.com/ShivanshCharak/Boo",
+      images:[
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
       ],
       solutions: [
         "Used Socket.IO for live comments",
