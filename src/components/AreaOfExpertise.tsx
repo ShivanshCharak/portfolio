@@ -7,11 +7,31 @@ import svg from '../../public/array-upward.svg'
 gsap.registerPlugin(ScrollTrigger)
 export default function AOE({ setSelectedIndex }: { setSelectedIndex: (idx: number) => void }) {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const aoeRef = useRef<HTMLDivElement>(null)
 
   const workRef = useRef(null)
-  const projectItemsRef = useRef<(HTMLDivElement | null)[]>([])
+  const projectItemsRef = useRef<(HTMLDivElement|null)[]>([])
+  const seeProjectRef = useRef<HTMLDivElement>(null)
+
 
   useEffect(() => {
+
+    gsap.fromTo(
+      seeProjectRef.current,{
+        y:50,
+        opacity:0
+      },{
+        y:0,
+        opacity:1,
+        scrollTrigger:{
+          trigger:seeProjectRef.current,
+          start:"top 70%", 
+          markers:true
+       
+        }
+      }
+    )
+
     gsap.fromTo(
       workRef.current,
       {
@@ -47,7 +67,7 @@ export default function AOE({ setSelectedIndex }: { setSelectedIndex: (idx: numb
       opacity: 1,
       y: 0,
       duration: 0.8,
-      stagger: 0.15, // Adjust this value for the timing between each item
+      stagger: 0.15, 
       ease: "power2.out",
       scrollTrigger: {
         trigger: projectItemsRef.current[0]?.parentElement,
@@ -87,7 +107,7 @@ export default function AOE({ setSelectedIndex }: { setSelectedIndex: (idx: numb
           return (
             <div
               key={idx}
-              ref={el => projectItemsRef.current[idx] = el}
+              ref={(el) => {projectItemsRef.current[idx] = el}}
               onMouseEnter={() => setHoverIndex(idx)}
               onMouseLeave={() => setHoverIndex(null)}
               onClick={() => setSelectedIndex(idx)}
@@ -95,14 +115,14 @@ export default function AOE({ setSelectedIndex }: { setSelectedIndex: (idx: numb
                 }`}
             >
               <span
-                className={`text-[18px] min-w-[260px] Inter font-[500] transition-colors duration-500 ${isHovered && !isActive ? "text-gray-500/50" : "text-white opacity-100"
+                className={`text-[18px] min-w-[260px] Inter font-[500] transition-colors duration-600 ${isHovered && !isActive ? "text-gray-500/50" : "text-white opacity-100"
                   }`}
               >
                 {val}
               </span>
               <div className="h-[1px] flex-2 bg-[#ffffff1a]"></div>
               <span
-                className={`text-[13px] min-w-[140px] text-right Inter transition-colors duration-500 ${isHovered && !isActive ? "text-gray-500/50" : "text-white opacity-100"
+                className={`text-[13px] min-w-[140px] text-right Inter transition-colors duration-500  ${isHovered && !isActive ? "text-gray-500/50" : "text-white opacity-100"
                   }`}
               >
                 Full Stack, Design
@@ -110,11 +130,11 @@ export default function AOE({ setSelectedIndex }: { setSelectedIndex: (idx: numb
             </div>
           );
         })}
-
-        <div className="absolute underline font-[400] cursor-pointer w-[800px]  mt-5 Inter flex justify-center">
+        <div ref={seeProjectRef} className="absolute underline font-[400] cursor-pointer w-[800px]  mt-5 Inter flex justify-center ">
           <Image src={svg} className="rotate-[40deg] " alt="" width={30} height={30} unoptimized />
           See All Projects <span className="text-[11px] -top-3 no-underline ml-1 Inter">( {projects.length} )</span>
         </div>
+
 
         <div className="absolute bottom-0 left-0 w-full h-[30vh] pointer-events-none z-50 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       </section>

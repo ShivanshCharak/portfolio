@@ -16,6 +16,7 @@ export default function ProjectsViewer({
   index: number;
   onClose: () => void;
 }) {
+  console.log("called")
   const projects = projectsData;
   const projectKeys = Object.keys(projects) as Array<keyof Projects>;
   const [currentIndex, setCurrentIndex] = useState(index);
@@ -23,14 +24,13 @@ export default function ProjectsViewer({
   const [transitionDirection, setTransitionDirection] = useState<"up" | "down">("up");
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  {console.log(index,currentIndex,projectKeys[currentIndex],projects)}
+  {console.log("index",index,"currentIndex",currentIndex,projectKeys[currentIndex],projects)}
 
   useEffect(() => {
     const body = document.querySelector("body");
-    if(index>-1){
-      setCurrentIndex(index)
-    }
+    
     if (index >= 0 && body) {
+      console.log("body is hiding")
       body.style.overflow = "hidden";
     }
     return () => {
@@ -39,6 +39,15 @@ export default function ProjectsViewer({
       }
     };
   }, [index]);
+
+
+  useEffect(() => {
+    if (index >= 0) {
+      console.log("index getting called")
+      setCurrentIndex(index);
+    }
+  }, [index]);
+  
  
 
   // Escape key to close
@@ -62,6 +71,7 @@ export default function ProjectsViewer({
 
     setTimeout(() => {
       setCurrentIndex((prev) => {
+        {console.log("seeting current index")}
         if (command === "prev") {
           return prev === 0 ? projectKeys.length - 1 : prev - 1;
         } else {
@@ -105,9 +115,10 @@ export default function ProjectsViewer({
                 {currentProject.heading}
               </h1>
               <button
-                className="text-sm uppercase tracking-wide Inter"
+                className="text-sm uppercase tracking-wide Inter px-3 py-2 hover:bg-zinc-900 duration-500 transition-colors cursor-pointer rounded"
                 onClick={onClose}
                 aria-label="Close project viewer"
+                
               >
                 Close ✕
               </button>

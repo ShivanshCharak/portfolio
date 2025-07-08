@@ -10,7 +10,7 @@ import Playground from "@/components/Playground";
 import { useState } from "react";
 import Journal from "@/components/Journal";
 export default function Home() {
-const [selectedIndex, setSelectedIndex] = useState(-1)
+const [selectedIndex, setSelectedIndex] = useState(0)
 const [selectedServices, setSelectedServices] = useState(-1)
 
 
@@ -36,14 +36,14 @@ const [selectedServices, setSelectedServices] = useState(-1)
       </div>
       <div>
         <AOE  setSelectedIndex={setSelectedIndex}/>
-        {console.log(selectedIndex)}
       </div>
       <div>
         <Services />
       </div>
       <Playground />
     
-      <ProjectsViewer index={selectedIndex} onClose={() => setSelectedIndex(-1)} />
+    
+      <ProjectsViewer index={selectedIndex}  onClose={() => setSelectedIndex(-1)} />
         <Journal/>
 
     </main>

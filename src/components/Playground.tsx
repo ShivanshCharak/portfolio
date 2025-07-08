@@ -12,20 +12,19 @@ export default function Playground() {
 
         if (!playgroundRef.current || !textArrayRef.current || !containerRef.current) return;
 
-        // Calculate total horizontal scroll distance needed
+       
         const horizontalScrollDistance = playgroundRef.current.scrollWidth - window.innerWidth;
 
-        // 1. First pin the image grid when it reaches center
+
         ScrollTrigger.create({
             trigger: playgroundRef.current,
             start: "top 30%",
             end: `+=${horizontalScrollDistance+300}`, // Continue pinning through horizontal scroll
             pin: true,
             pinSpacing: false,
-            // markers: true // For debugging
+       
         });
 
-        // 2. Horizontal scroll animation
         gsap.to(playgroundRef.current, {
             x: -horizontalScrollDistance,
             ease: "none",
