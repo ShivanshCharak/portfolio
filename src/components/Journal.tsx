@@ -71,7 +71,7 @@ export default function Journal() {
   ];
 
   return (
-    <div className="relative flex flex-col w-[90vw] mx-auto mt-[100rem] z-10 py-10 h-[100vh]">
+    <div className="relative flex flex-col w-[90vw] mx-auto mt-[10rem] z-10 py-10 h-[100vh]">
       <section className=" transition-all " ref={workRef}>
         <p className="text-6xl font-sans mb-6  Stardom-Regular">Journal</p>
         <p className="w-[600px] text-sm text-gray-300 mb-2 Inter">

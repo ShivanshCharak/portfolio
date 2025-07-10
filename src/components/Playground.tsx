@@ -22,7 +22,7 @@ export default function Playground() {
         ScrollTrigger.create({
             trigger: playgroundRef.current,
             start: "top 30%",
-            end: `+=${horizontalScrollDistance+300}`, // Continue pinning through horizontal scroll
+            end: `+=${horizontalScrollDistance-700}`, // Continue pinning through horizontal scroll
             pin: true,
             pinSpacing: true,
        
@@ -36,6 +36,7 @@ export default function Playground() {
                 start: "top 30%",
                 end: `+=${horizontalScrollDistance}`,
                 scrub: 1,
+                markers:true
             }
         });
 
