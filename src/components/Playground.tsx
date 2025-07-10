@@ -36,7 +36,6 @@ export default function Playground() {
                 start: "top 30%",
                 end: `+=${horizontalScrollDistance}`,
                 scrub: 1,
-                markers:true
             }
         });
 
@@ -61,13 +60,13 @@ export default function Playground() {
             >
 
 
-                    <Image src={projectsData["cryptex"]["images"][0]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                    <Image src={projectsData["cryptex"]["images"][0]}  alt="Image 1" width={1000} height={800} className="rounded-xl shadow-m
                     d w-[1000px] h-[60vh] object-cover" />
-                    <Image src={projectsData["cryptex"]["images"][1]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                    <Image src={projectsData["cryptex"]["images"][1]}  alt="Image 1" width={1000} height={800} className="rounded-xl shadow-m
                     d w-[1000px] h-[60vh] object-cover" />
-                     <Image src={projectsData["techUnplugged"]["images"][0]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                     <Image src={projectsData["techUnplugged"]["images"][0]}  alt="Image 1" width={1000} height={800} className="rounded-xl shadow-m
                     d w-[1000px] h-[60vh] object-cover" />
-                     <Image src={projectsData["techUnplugged"]["images"][1]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                     <Image src={projectsData["techUnplugged"]["images"][1]}  alt="Image 1" width={1000} height={800} className="rounded-xl shadow-m
                     d w-[900px] h-[60vh] object-cover" />
           
                 
