@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import HeroPage from "@/components/HeroPage";
 import RotatingLogo from "@/components/logo";
 import Navbar from "@/components/Navbar";
@@ -9,42 +9,44 @@ import Contact from "@/components/Contact";
 import Playground from "@/components/Playground";
 import { useState } from "react";
 import Journal from "@/components/Journal";
-export default function Home() {
-const [selectedIndex, setSelectedIndex] = useState(0)
 
+export default function Home() {
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1); // Always number, -1 means closed
 
   return (
-    <main className="min-h-screen bg-black text-white flex flex-col ">
-
+    <main className="min-h-screen bg-black text-white flex flex-col">
       <div className="flex flex-row justify-between w-full fixed">
-        
         <RotatingLogo />
-        <div className="w-[30vw] flex justify-between p-10 ">
+        <div className="w-[30vw] flex justify-between p-10">
           <Navbar />
           <Contact />
-
         </div>
       </div>
-      <div className="flex-grow flex items-center justify-center">
 
+      <div className="flex-grow flex items-center justify-center">
         <HeroPage />
         <div className="absolute bottom-10 right-10 w-[300px] animate-pulse font-semibold text-zinc-500 text-left cursor-pointer hover:shine-effect">
           Tries to create Fast, Scalable and reliable systems by using the concept of system design
         </div>
+      </div>
 
-      </div>
       <div>
-        <AOE  setSelectedIndex={setSelectedIndex}/>
+        <AOE setSelectedIndex={setSelectedIndex} />
       </div>
+      
       <div>
         <Services />
       </div>
+      
       <Playground />
-    
-    
-      <ProjectsViewer index={selectedIndex}  onClose={() => setSelectedIndex(-1)} />
-        <Journal setSelectedIndex={0}/>
-
+      
+      <ProjectsViewer 
+        index={selectedIndex} 
+        setIndex={setSelectedIndex} 
+        onClose={() => setSelectedIndex(-1)} 
+      />
+      
+      <Journal/>
     </main>
   );
 }

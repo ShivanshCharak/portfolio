@@ -2,12 +2,14 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { projectsData } from "./utils/projectdata";
 
 export default function Playground() {
     const playgroundRef = useRef<HTMLDivElement>(null);
     const textArrayRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +24,7 @@ export default function Playground() {
             start: "top 30%",
             end: `+=${horizontalScrollDistance+300}`, // Continue pinning through horizontal scroll
             pin: true,
-            pinSpacing: false,
+            pinSpacing: true,
        
         });
 
@@ -41,7 +43,7 @@ export default function Playground() {
     }, []);
 
     return (
-        <div ref={containerRef} className="relative w-full overflow-x-hidden h-[250vh] mt-[100px]">
+        <div ref={containerRef} className="relative w-full overflow-x-hidden h-[250vh] mt-[100px] z-0">
             {/* Scrolling text array */}
             <div ref={textArrayRef} className="absolute top-10 flex items-center animate-scroll">
                 {Array.from({length: 50}).map((_, index) => (
@@ -54,16 +56,25 @@ export default function Playground() {
             {/* Horizontally scrolling image grid */}
             <div 
                 ref={playgroundRef}
-                className="flex gap-8 mt-50 cursor-pointer relative z-40 w-max"
+                className="flex gap-8 mt-50 cursor-pointer relative z-0 w-max"
             >
-                <Image src="/images/System-design.png" alt="Image 1" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
-                <Image src="/images/sysglad-logo.png" alt="Image 2" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
-                <Image src="/images/System-design.png" alt="Image 3" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
-                <Image src="/images/System-design.png" alt="Image 4" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
-                <Image src="/images/System-design.png" alt="Image 5" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
-                <Image src="/images/System-design.png" alt="Image 6" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
-                <Image src="/images/System-design.png" alt="Image 7" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
-                <Image src="/images/System-design.png" alt="Image 8" className="rounded-xl shadow-md w-[400px] h-[60vh] object-cover" />
+
+
+                    <Image src={projectsData["cryptex"]["images"][0]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                    d w-[1000px] h-[60vh] object-cover" />
+                    <Image src={projectsData["cryptex"]["images"][1]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                    d w-[1000px] h-[60vh] object-cover" />
+                     <Image src={projectsData["techUnplugged"]["images"][0]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                    d w-[1000px] h-[60vh] object-cover" />
+                     <Image src={projectsData["techUnplugged"]["images"][1]}  alt="Image 1" width={100} height={100} className="rounded-xl shadow-m
+                    d w-[900px] h-[60vh] object-cover" />
+          
+                
+                     <>
+                           
+        
+                 </>
+            
             </div>
         </div>
     );

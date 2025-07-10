@@ -32,7 +32,7 @@ type Technology =
 
 type Role = "Full Stack" | "Design";
 
-interface Project {
+export interface Project {
   heading: string;
   info: string;
   industry: Industry[];
