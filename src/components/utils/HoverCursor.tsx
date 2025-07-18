@@ -52,7 +52,7 @@ export default function HoverCursor({ images }: { images: string[] }) {
                     className="rounded-xl shadow-md" 
                 />
                 <Image 
-                    src="/images/sysglad-logo.png" 
+                    src={images?.[2] as string??null} 
                     alt="Cryptex" 
                     width={500} // Required
                     height={300} // Required

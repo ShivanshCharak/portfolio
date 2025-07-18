@@ -15,19 +15,27 @@ type Technology =
   | "Node.js" 
   | "WebSockets" 
   | "MongoDB" 
+  | "Postgres"
+  | "Timescaledb"
+  |  "Websockets"
   | "Redis" 
   | "Binance API" 
   | "Next.js" 
   | "Vercel" 
   | "Markdown" 
+  | "Cloudflare"
+  | "S3"
+  |"PostgresJson"
   | "Tailwind CSS" 
   | "React Native" 
   | "Express" 
   | "JWT" 
   | "LeetCode API" 
+  |"Hono"
   | "Redux" 
   | "Razorpay" 
-  | "Socket.IO" 
+  | "Socket.IO"
+  | "lightweight charts" 
   | "Cloudinary";
 
 type Role = "Full Stack" | "Design";
@@ -57,33 +65,39 @@ export const projectsData:Projects = {
       heading: "Cryptex",
       info: " My crypto trading platform is engineered for high throughput, low latency, and horizontal scalability. It uses an API gateway-like architecture to decouple client interactions from the trading engine, which handles core operations like order matching, balance updates (via Lua scripting for atomicity), and real-time event distribution through Redis (pub/sub, lists, hashsets). Market data is persisted in TimescaleDB for efficient time-series querying, and WebSocket streams provide millisecond-level updates to clients. The system is fully unit tested for core reliability and performance consistency.",
       industry: ["Finance", "Cryptocurrency"],
-      technologyUsed: ["React", "Node.js", "WebSockets", "MongoDB", "Redis", "Binance API"],
+      technologyUsed: ["Next.js", "Node.js", "WebSockets", "MongoDB", "Redis", "Express", "Postgres","Timescaledb","lightweight charts"],
       role: ["Full Stack", "Design"],
       challenges: [
         "Ensuring real-time trading updates",
         "Managing order matching efficiently",
-        "Handling wallet transactions securely"
+        "Handling wallet transactions securely",
+        "Atomicity it Redis transaction",
+        "Syncing Redis to PostgresDb and timescaleDb"
       ],
       solutions: [
         "Used WebSockets for live market feed",
         "Implemented a Redis-backed matching engine",
-        "Integrated wallet encryption and JWT-based auth"
+        "Integrated wallet encryption and JWT-based auth",
+        "Used Lua script to maintain atomicity",
+        "Used timescaledb to get the stats effeciently on graph"
       ],
       githubLink:"https://github.com/ShivanshCharak/Cryptex",
       images:[
         "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-07-43_fxfqwy.png",
-        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-07-31_rea6br.png"
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-07-31_rea6br.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1752813657/Screenshot_from_2025-07-18_10-07-23_lh2sqo.png",
       ]
     },
     techUnplugged: {
       heading: "Tech Unplugged",
-      info: "A minimalist blog site hosted on serverless infrastructure.",
+      info: "A minimalist blog site hosted on serverless cloudflare infrastructure.",
       industry: ["Media", "Personal Branding"],
-      technologyUsed: ["Next.js", "Vercel", "Markdown", "Tailwind CSS"],
+      technologyUsed: ["React", "Hono","Vercel", "Markdown", "Tailwind CSS", "Cloudflare","Cloudinary","S3", 'PostgresJson',],
       role: ["Full Stack", "Design"],
       challenges: [
         "Fast rendering of blog content",
-        "Scalable serverless hosting"
+        "Scalable serverless hosting",
+        "Inetgrating services which includes connection over TCP"
       ],
       solutions: [
         "Used SSG in Next.js for fast loads",
@@ -91,15 +105,16 @@ export const projectsData:Projects = {
       ],
       githubLink:"https://github.com/ShivanshCharak/Tech-Unplugged",
       images:[
-      "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
-      "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
+      "https://res.cloudinary.com/dnvjiudhd/image/upload/v1752813726/Screenshot_from_2025-07-18_09-39-00_xxkqso.png",
+      "https://res.cloudinary.com/dnvjiudhd/image/upload/v1752813725/Screenshot_from_2025-07-18_09-38-23_gxzrsc.png",
+      "https://res.cloudinary.com/dnvjiudhd/image/upload/v1752813724/Screenshot_from_2025-07-16_19-31-58_qfpnfa.png"
     ]
     },
     digitalWallet: {
       heading: "Digital Wallet",
       info: "A secure digital wallet for storing and sending virtual money.",
       industry: ["Finance", "FinTech"],
-      technologyUsed: ["React Native", "Node.js", "Express", "JWT", "MongoDB"],
+      technologyUsed: ["React", "Node.js", "Express", "JWT", "MongoDB"],
       role: ["Full Stack", "Design"],
       challenges: [
         "Secure money transfer",
@@ -107,6 +122,7 @@ export const projectsData:Projects = {
       ],
       images:[
         "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
+        
         "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
       ],
       githubLink:"",
@@ -126,13 +142,14 @@ export const projectsData:Projects = {
         "Plagiarism detection in solutions"
       ],
       images:[
-        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-04-04_qxjmde.png",
-        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1751993219/Screenshot_from_2025-07-08_22-03-33_jyxfwy.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1752813902/Screenshot_from_2025-07-15_14-49-50_mmx8cr.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1752813902/Screenshot_from_2025-07-15_15-07-07_j7tvjb.png",
+        "https://res.cloudinary.com/dnvjiudhd/image/upload/v1752814333/31bda327-b133-43bb-bf4c-d952cd72c442.png",
       ],
       githubLink:"https://github.com/ShivanshCharak/tle-eleiminators",
       solutions: [
-        "Used Puppeteer + Cron jobs",
-        "Implemented solution hashing + diff checker"
+        "Used Leetcode, Codechef's api to extract the link",
+        "Used Youtube webhook to get the link of the latest solution",
       ]
     },
     manaraAlAman: {

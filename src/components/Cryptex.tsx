@@ -110,7 +110,7 @@ export default function ProjectsViewer({
               {currentProject.heading}
             </h1>
             <button
-              className=" cursor-pointer text-sm uppercase tracking-wide Inter px-3 py-2 hover:bg-zinc-900 duration-500 transition-colors cursor-pointer rounded"
+              className="  text-sm uppercase tracking-wide Inter px-3 py-2 hover:bg-zinc-900 duration-500 transition-colors cursor-pointer rounded"
               onClick={()=>onClose()}
               aria-label="Close project viewer"
               
@@ -121,8 +121,8 @@ export default function ProjectsViewer({
    
           <p className="text-[15px] max-w-3xl mb-12 Inter">{currentProject.info}</p>
    
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-16">
-            <div className="space-y-6 flex justify-between w-[768px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-16 w-full ">
+            <div className="space-y-6 flex justify-between w-[768px] mr-[100px]">
               <section>
                 <div className="mb-6">
                   <h2 className="font-bold Inter">Industry</h2>
@@ -135,7 +135,7 @@ export default function ProjectsViewer({
                 </div>
                 <div>
                   <h2 className="font-bold Inter">Technologies I Used</h2>
-                  <p className="Inter text-[14px]">
+                  <p className="Inter text-[14px] w-[400px] whitespace-break-spaces">
                     {currentProject.technologyUsed.join(", ")}
                   </p>
                 </div>
@@ -159,8 +159,8 @@ export default function ProjectsViewer({
               </section>
             </div>
    
-            <div className="space-y-6">
-              <div>
+            <div className="space-y-6 ml-[300px]">
+              <div className="">
                 <h2 className="font-bold Inter">Challenges</h2>
                 <ul className="list-disc text-[14px] list-inside space-y-1">
                   {currentProject.challenges.map((challenge, idx) => (
